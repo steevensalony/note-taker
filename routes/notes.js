@@ -38,3 +38,5 @@ notes.post('/api/notes', (req, res) => {
     res.status(400).json('There was an error while trying to add the recent note')
   }
 })
+
+module.exports = notes;
