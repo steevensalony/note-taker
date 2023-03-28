@@ -40,7 +40,7 @@ notes.post('/api/notes', (req, res) => {
 })
 
 notes.delete('/api/notes/:id', (req, res) => {
-  const noteID = req.params.id
+  const noteID = req.params.id;
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
       console.error (err);
@@ -48,13 +48,17 @@ notes.delete('/api/notes/:id', (req, res) => {
       const oldNotes = JSON.parse(data);
       const updatedNotes = oldNotes.filter(function (note) {
         if (noteID === note.id) {
-          return false
+          return false;
         } else {
           return true;
         }
       })
-    }
-  })
-})
+      fs.writeFile('./db/db.json', JSON.stringify(updatedNotes, null, 4), (err) => {
+        err ? console.error(err) : console.info(`\nData written to db.json file.`);
+        res.status(200).json('Note deleted successfully!');
+      });
+    };
+  });
+});
 
 module.exports = notes;
