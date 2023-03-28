@@ -39,4 +39,8 @@ notes.post('/api/notes', (req, res) => {
   }
 })
 
+notes.delete('/api/notes/:id', (req, res) => {
+  const noteID = req.params.id
+}
+
 module.exports = notes;
