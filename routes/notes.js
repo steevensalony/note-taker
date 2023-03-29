@@ -12,9 +12,12 @@ notes.get('/api/notes', (req, res) => {
 notes.post('/api/notes', (req, res) => {
   console.log(req.body);
 
+  // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
 
+  // if req.body is true
   if (req.body) {
+    // variable for the object we will save
     const newNote = {
       title,
       text,
@@ -39,6 +42,7 @@ notes.post('/api/notes', (req, res) => {
   }
 })
 
+// Delete route for deleting individual notes
 notes.delete('/api/notes/:id', (req, res) => {
   const noteID = req.params.id;
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
