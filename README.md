@@ -1,6 +1,6 @@
 # Note Taker
 
-
+![11-express-homework-demo-01](https://user-images.githubusercontent.com/108702715/228546264-f6a53e74-72a8-4585-bf37-7987f172884e.png)
 
 ## Description
 
